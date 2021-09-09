@@ -36,7 +36,7 @@ $ sudo reboot
 
 ## Install Nvidia Docker
 
-> **_WARNING:_**  Docker and containerd.io versions must match with the existing versions of Kubernetes nodes. The configuration of those versions is out of the scope of this repository. For more information: [Upgrading in Kubespray](https://github.com/kubernetes-sigs/kubespray/blob/master/docs/upgrades.md).
+> **_WARNING:_**  Docker and containerd.io versions must match with the existing versions of Kubernetes nodes. It is likely that the version to be installed of both would have to be specified manually, or re-install the appropriate version of one or both of them on the GPU node after the execution of the script. The configuration of those versions is out of the scope of this repository. For more information: [Upgrading in Kubespray](https://github.com/kubernetes-sigs/kubespray/blob/master/docs/upgrades.md).
 
 Install Docker-CE. More information on [Docker installation methods](https://docs.docker.com/engine/install/ubuntu/#installation-methods).
 ```bash
