@@ -106,7 +106,6 @@ spec:
   restartPolicy: OnFailure
   containers:
     - name: cuda-vector-add
-      # https://github.com/kubernetes/kubernetes/blob/v1.7.11/test/images/nvidia-cuda/Dockerfile
       image: "k8s.gcr.io/cuda-vector-add:v0.1"
       resources:
         limits:
