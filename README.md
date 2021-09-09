@@ -36,12 +36,44 @@ $ sudo reboot
 
 ## Install Nvidia Docker
 
-> **_WARNING:_**  Docker and containerd.io versions must match with the existing versions of Kubernetes nodes. It is likely that the version to be installed of both would have to be specified manually, or re-install the appropriate version of one or both of them on the GPU node after the execution of the script. The configuration of those versions is out of the scope of this repository. For more information: [Upgrading in Kubespray](https://github.com/kubernetes-sigs/kubespray/blob/master/docs/upgrades.md).
+> **_WARNING:_**  Docker and containerd.io versions must match with the existing versions of Kubernetes nodes. Another option is to upgrade/downgrade the existing versions of Kubernetes nodes. The configuration of existing versions is out of the scope of this repository. For more information: [Upgrading in Kubespray](https://github.com/kubernetes-sigs/kubespray/blob/master/docs/upgrades.md).
 
-Install Docker-CE. More information on [Docker installation methods](https://docs.docker.com/engine/install/ubuntu/#installation-methods).
+Set Docker and containerd versions.
 ```bash
-$ curl https://get.docker.com | sh \
-  && sudo systemctl --now enable docker
+DOCKER_VERSION=<docker-version>
+CONTAINERD_VERSION=<containerd-version>
+```
+
+Get required packages to install Docker.
+```bash
+$ sudo apt-get update \
+  && sudo apt-get install -y \
+    apt-transport-https \
+    ca-certificates \
+    curl \
+    gnupg \
+    lsb-release
+```
+
+Add Docker’s official GPG key.
+```bash
+$ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+```
+
+Set up stable Docker´s repository.
+```bash
+$ echo \
+  "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
+  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+```
+
+Install Docker and containerd specific versions. More information on [Docker installation methods](https://docs.docker.com/engine/install/ubuntu/#installation-methods).
+```bash
+$ sudo apt-get update \
+  && sudo apt-get install -y \
+  docker-ce=$DOCKER_VERSION \
+  docker-ce-cli=$DOCKER_VERSION \
+  containerd.io=$CONTAINERD_VERSION
 ```
 
 Add the package repositories according to the distribution.
