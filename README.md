@@ -14,7 +14,7 @@ The following steps have being tested on `Ubuntu LTS - 20.4` and using an `Nvidi
 
 ### Option 1 (recommended)
 
-The most straightforward way of install the latest Nvidia drivers it´s by using `ubuntu-drivers-common`.
+The most straightforward way of install the latest Nvidia drivers is using `ubuntu-drivers-common`.
 
 ```bash
 $ sudo apt install ubuntu-drivers-common -y \
