@@ -3,7 +3,7 @@
 This repository aims to configure and add an Nvidia GPU node to an existing Kubernetes cluster using [Kubespray](https://github.com/kubernetes-sigs/kubespray).
 
 In order to facilitate the installation of the necessary drivers and configurations, two scripts are provided.
-* [`install_nvidia_drivers.sh`](https://github.com/jaime-cespedes-sisniega/k8s-gpu-node/blob/main/scripts/install_nvidia_drivers.sh) which uses [Option 1 (recommended)](#option-1-(recommended)).
+* [`install_nvidia_drivers.sh`](https://github.com/jaime-cespedes-sisniega/k8s-gpu-node/blob/main/scripts/install_nvidia_drivers.sh) which uses [Option 1 (recommended)](#option-1-recommended).
 * [`install_nvidia_docker.sh`](https://github.com/jaime-cespedes-sisniega/k8s-gpu-node/blob/main/scripts/install_nvidia_docker.sh) which [Install Nvidia Docker](#install-nvidia-docker).
 > **_NOTE:_**  Make the scrips executable with the command `chmod +x <script-name>.sh`.
 
