@@ -135,7 +135,7 @@ $ kubectl delete node <node-name>
 
 From the GPU node, kudeadm must be reset.
 ```bash
-$ sudo kubeadm reset
+$ sudo kubeadm reset -f
 ```
 
 Remove node configuration from `inventory/<cluster-name>/hosts.yaml`.
